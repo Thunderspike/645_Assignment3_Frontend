@@ -1,4 +1,17 @@
-<div class="p-d-flex p-jc-center">
+<div *ngIf="!loaded" class="p-d-flex p-jc-center">
+    <div class="p-col-12 p-md-11 p-grid">
+        <div *ngFor="let i of ['', '..', '...']" class="p-field p-col-12 p-my-2 p-md-6 p-lg-4">
+            <h5>Fetching {{i}}</h5>
+            <p-skeleton styleClass="p-mb-2"></p-skeleton>
+            <p-skeleton width="10rem" styleClass="p-mb-2"></p-skeleton>
+            <p-skeleton width="5rem" styleClass="p-mb-2"></p-skeleton>
+            <p-skeleton height="2rem" styleClass="p-mb-2"></p-skeleton>
+            <p-skeleton width="10rem" height="4rem"></p-skeleton>
+        </div>
+    </div>
+</div>
+
+<div *ngIf="loaded" class="p-d-flex p-jc-center">
     <div class="p-col-12 p-md-11 p-grid">
         <div *ngFor="let survey of surveys" class="p-col-12 p-my-2 p-md-6 p-lg-4">
             <p-card styleClass="p-card-shadow p-shadow-4 p-py-0 customCardClass">

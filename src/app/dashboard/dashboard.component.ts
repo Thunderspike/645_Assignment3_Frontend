@@ -4,23 +4,27 @@ import { SurveyService } from '../survey.service';
 import { Survey } from '../CommonInterfaces';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.scss'],
+    selector: 'app-dashboard',
+    templateUrl: './dashboard.component.html',
+    styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  surveys: Survey[] = [];
+    surveys: Survey[] = [];
+    loaded = false;
 
-  constructor(private surveyService: SurveyService) {}
+    constructor(private surveyService: SurveyService) {}
 
-  ngOnInit(): void {
-    this.getSurveys();
-  }
+    ngOnInit(): void {
+        this.getSurveys();
+        this.loaded = false;
+    }
 
-  getSurveys(): void {
-    this.surveyService.getSurveys().subscribe((surveys) => {
-      this.surveys = surveys;
-      console.log(surveys);
-    });
-  }
+    getSurveys(): void {
+        this.loaded = false;
+        this.surveyService.getSurveys().subscribe((surveys) => {
+            this.loaded = true;
+            this.surveys = surveys;
+            //   console.log(surveys);
+        });
+    }
 }

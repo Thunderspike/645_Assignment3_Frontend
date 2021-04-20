@@ -7,7 +7,7 @@ COPY . /root/survey/
 
 RUN npm install --silent
 RUN npm install -g @angular/cli
-RUN ng build
+RUN ng build --prod 
 
 FROM nginx
 COPY --from=build /root/survey/dist/survey/ /usr/share/nginx/html

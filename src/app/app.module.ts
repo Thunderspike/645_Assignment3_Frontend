@@ -14,6 +14,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ChipModule } from 'primeng/chip';
 import { ToastModule } from 'primeng/toast';
+import { SkeletonModule } from 'primeng/skeleton';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { FormsModule } from '@angular/forms';
 
 import { HttpClientModule } from '@angular/common/http';
@@ -30,44 +32,46 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './in-memory-data.service';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    FormComponent,
-    HomeComponent,
-    DashboardComponent,
-  ],
-  imports: [
-    MenubarModule,
-    CardModule,
-    PanelModule,
-    ButtonModule,
-    BrowserModule,
-    BrowserAnimationsModule,
-    InputTextModule,
-    DropdownModule,
-    CalendarModule,
-    InputMaskModule,
-    ChipModule,
-    ToastModule,
-    FormsModule,
-    CheckboxModule,
-    RadioButtonModule,
-    HttpClientModule,
-    AppRoutingModule,
+    declarations: [
+        AppComponent,
+        FormComponent,
+        HomeComponent,
+        DashboardComponent,
+    ],
+    imports: [
+        MenubarModule,
+        CardModule,
+        PanelModule,
+        ButtonModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        InputTextModule,
+        DropdownModule,
+        CalendarModule,
+        InputMaskModule,
+        ChipModule,
+        ToastModule,
+        FormsModule,
+        SkeletonModule,
+        ProgressSpinnerModule,
+        CheckboxModule,
+        RadioButtonModule,
+        HttpClientModule,
+        AppRoutingModule,
 
-    // left below in place in case app needs to be pulled from server services
+        // left below in place in case app needs to be pulled from server services
 
-    // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
-    // and returns simulated server responses.
-    // Remove it when a real server is ready to receive requests.
+        // The HttpClientInMemoryWebApiModule module intercepts HTTP requests
+        // and returns simulated server responses.
+        // Remove it when a real server is ready to receive requests.
 
-    // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
-    //   dataEncapsulation: false,
-    // }),
-  ],
-  providers: [MessageService],
-  bootstrap: [AppComponent],
+        // HttpClientInMemoryWebApiModule.forRoot(InMemoryDataService, {
+        //   dataEncapsulation: false,
+        // }),
+    ],
+    providers: [MessageService],
+    bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(public messageService: MessageService) {}
+    constructor(public messageService: MessageService) {}
 }

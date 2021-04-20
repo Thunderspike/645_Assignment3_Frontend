@@ -1,32 +1,54 @@
 body {
-  //   background-color: var(--surface-900);
-  font-family: "Roboto", sans-serif;
+    //   background-color: var(--surface-900);
+    font-family: "Roboto", sans-serif;
 }
 .p-menubar.p-component {
-  background: var(--surface-a);
+    background: var(--surface-a);
 }
 
 .customPCardStyle {
-  padding: 0.5em;
+    padding: 0.5em;
 }
 
 .p-card div.p-card-title {
-  margin-bottom: 1em;
+    margin-bottom: 1em;
 }
 
 .customPannelHead .p-panel .p-panel-header span {
-  font-size: 1rem !important;
+    font-size: 1rem !important;
 }
 
 .customPannelHead.p-error .p-panel .p-panel-header span {
-  color: #b00020;
+    color: #b00020;
 }
 
 .customCardClass .p-card-content {
-  padding-top: 0;
-  padding-bottom: 0;
+    padding-top: 0;
+    padding-bottom: 0;
 }
 
 .customCardClass .p-panel-header {
-  padding-bottom: 0;
+    padding-bottom: 0;
+}
+
+.customizedSpinner svg.p-progress-spinner-svg .p-progress-spinner-circle {
+    animation: p-progress-spinner-dash 1.5s ease-in-out infinite,
+        customizedSpinner-color 6s ease-in-out infinite !important;
+}
+
+@keyframes customizedSpinner-color {
+    100%,
+    0% {
+        stroke: #007bff;
+    }
+    40% {
+        stroke: #651fff;
+    }
+    66% {
+        stroke: #010409;
+    }
+    80%,
+    90% {
+        stroke: #2962ff;
+    }
 }
