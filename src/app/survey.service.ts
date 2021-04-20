@@ -9,7 +9,7 @@ import { catchError, map, tap } from 'rxjs/operators';
   providedIn: 'root',
 })
 export class SurveyService {
-  private surveyURL = 'http://10.43.246.104:8080/SurveyMiddleware/api'; // URL to web api
+  private surveyURL = 'http://34.218.230.109:31772/SurveyMiddleware/api'; // URL to web api
 
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
