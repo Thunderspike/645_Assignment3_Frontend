@@ -26,4 +26,4 @@ jobs:
               with:
                   context: .
                   push: true
-                  tags: thunderspike/assignment3_frontend:latest
+                  tags: thunderspike/645_assignment3_frontend:latest
