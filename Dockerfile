@@ -17,8 +17,8 @@ COPY nginx/nginx.conf /etc/nginx/conf.d
 EXPOSE 80
 
 #debugging
-RUN apt-get update
-RUN apt-get install iputils-ping
-RUN apt-get install curl
+RUN apt-get update;
+RUN apt-get install -y iputils-ping;
+RUN apt-get install -y curl;
 
 CMD [ "nginx", "-g", "daemon off;" ]
