@@ -3,7 +3,7 @@ import { MessageService } from './message.service';
 import { Survey, SurveyDB } from './CommonInterfaces';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
-import { catchError, map, tap } from 'rxjs/operators';
+import { catchError, map, retry, tap } from 'rxjs/operators';
 
 import { environment } from './../environments/environment';
 
@@ -62,21 +62,18 @@ export class SurveyService {
     }
 
     /** GET all surveys */
-    getSurveys(numRetries = 3): Observable<SurveyDB[]> {
+    getSurveys(): Observable<SurveyDB[]> {
         return this.http
             .get<SurveyDB[]>(`${this.surveyURL}/surveys`, this.httpOptions)
             .pipe(
+                retry(3),
                 // tap((_) =>
                 //   this.log({
                 //     severity: 'info',
                 //     detail: 'Successfully fetched surveys',
                 //   })
                 // ),
-                catchError(() => {
-                    // manually retry get surveys 3 times
-                    if (--numRetries > 0) return this.getSurveys(numRetries);
-                    else () => this.handleError<SurveyDB[]>('getSurveys', []);
-                })
+                catchError(this.handleError<SurveyDB[]>('getSurveys', []))
             );
     }
 
