@@ -11,7 +11,11 @@ import { environment } from './../environments/environment';
     providedIn: 'root',
 })
 export class SurveyService {
+<<<<<<< HEAD
     private surveyURL = environment.apiUrl; // URL to web api
+=======
+  private surveyURL = 'http://34.218.230.109:31772/SurveyMiddleware/api'; // URL to web api
+>>>>>>> 31bc1f75db84c56ae8ea8f1b846082bf2fb6897b
 
     httpOptions = {
         headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
