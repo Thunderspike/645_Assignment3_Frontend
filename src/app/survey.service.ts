@@ -62,7 +62,7 @@ export class SurveyService {
     }
 
     /** GET all surveys */
-    getSurveys(): Observable<SurveyDB[]> {
+    getSurveys(numRetries = 3): Observable<SurveyDB[]> {
         return this.http
             .get<SurveyDB[]>(`${this.surveyURL}/surveys`, this.httpOptions)
             .pipe(
@@ -72,7 +72,11 @@ export class SurveyService {
                 //     detail: 'Successfully fetched surveys',
                 //   })
                 // ),
-                catchError(this.handleError<SurveyDB[]>('getSurveys', []))
+                catchError(() => {
+                    // manually retry get surveys 3 times
+                    if (--numRetries > 0) return this.getSurveys(numRetries);
+                    else () => this.handleError<SurveyDB[]>('getSurveys', []);
+                })
             );
     }
 
