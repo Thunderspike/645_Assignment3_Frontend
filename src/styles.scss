@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  //   background-color: var(--surface-900);
+  font-family: "Roboto", sans-serif;
+}
+.p-menubar.p-component {
+  background: var(--surface-a);
+}
+
+.customPCardStyle {
+  padding: 0.5em;
+}
+
+.p-card div.p-card-title {
+  margin-bottom: 1em;
+}
+
+.customPannelHead .p-panel .p-panel-header span {
+  font-size: 1rem !important;
+}
+
+.customPannelHead.p-error .p-panel .p-panel-header span {
+  color: #b00020;
+}
+
+.customCardClass .p-card-content {
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.customCardClass .p-panel-header {
+  padding-bottom: 0;
+}

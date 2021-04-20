@@ -1,0 +1,182 @@
+<div class="p-d-flex p-jc-center">
+    <div class="p-col-12 p-md-11">
+        <p-card *ngIf="form" header={{formTitle}} styleClass="p-card-shadow p-shadow-4 p-my-3 p-pb-0 customPCardStyle">
+            <div class="card">
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
+                            <input name="fname" id="fname" type="text" pInputText [(ngModel)]="form.fname"
+                                [class.ng-invalid]="showValidate && !form.fname"
+                                [class.ng-dirty]="showValidate && !form.fname">
+                            <label for="fname">First Name</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
+                            <input name="lname" id="lname" type="text" pInputText [(ngModel)]="form.lname"
+                                [class.ng-invalid]="showValidate && !form.lname"
+                                [class.ng-dirty]="showValidate && !form.lname">
+                            <label for="lname">Last Name</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <span class="p-float-label">
+                            <input name="address" id="address" type="text" pInputText [(ngModel)]="form.address"
+                                [class.ng-invalid]="showValidate && !form.address"
+                                [class.ng-dirty]="showValidate && !form.address">
+                            <label for="address">Street Address</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
+                            <input name="city" id="city" type="text" pInputText [(ngModel)]="form.city"
+                                [class.ng-invalid]="showValidate && !form.city"
+                                [class.ng-dirty]="showValidate && !form.city">
+                            <label for="city">City</label>
+                        </span>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <p-dropdown [options]="states" optionValue="name" [(ngModel)]="form.state"
+                            placeholder="Select a State" optionLabel="name">
+                        </p-dropdown>
+                    </div>
+                    <div class="p-field p-col-12 p-md-6">
+                        <span class="p-float-label">
+                            <input name="zip" id="zip" type="text" pInputText [(ngModel)]="form.zip"
+                                [class.ng-invalid]="showValidate && !zipcodeRegex.test(form.zip)"
+                                [class.ng-dirty]="showValidate && !zipcodeRegex.test(form.zip)">
+                            <label for="zip">ZIP</label>
+                        </span>
+                        <small *ngIf="showValidate && !zipcodeRegex.test(form.zip.toString())" id="zip-help"
+                            class="p-error">Please provide
+                            a valid US Zipcode</small>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="phone">Phone</label>
+                        <p-inputMask id="phone" mask="(999) 999-9999" [(ngModel)]="form.phone"
+                            placeholder="(555) 555-5555" [class.ng-invalid]="showValidate && !isFormPhoneValid()"
+                            [class.ng-dirty]="showValidate && !isFormPhoneValid()">
+                        </p-inputMask>
+                        <small *ngIf="showValidate && this.numberAlreadyExists()" id="phone-help"
+                            class="p-error">{{form.phone}} is an already registered number</small>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <span class="p-float-label">
+                            <input name="email" id="email" type="text" pInputText [(ngModel)]="form.email" required
+                                [class.ng-invalid]="showValidate && !numberRegex.test(form.email)"
+                                [class.ng-dirty]="showValidate && !emailRegex.test(form.email)">
+                            <label for="email">Email</label>
+                        </span>
+                        <small *ngIf="showValidate && !emailRegex.test(form.email)" id="email-help"
+                            class="p-error">Please
+                            provide
+                            a valid Email address</small>
+                        <small *ngIf="showValidate && emailAlreadyExists()" id="email-help"
+                            class="p-error">{{form.email}} is an already registered email address</small>
+                    </div>
+                    <div class="p-field p-col-12">
+                        <label for="time">Time</label>
+                        <p-calendar [(ngModel)]="formDate" [showTime]="true" inputId="time"></p-calendar>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card p-shadow-1">
+
+                <p-panel header="What did you like most about the campus?" class="customPannelHead p-mt-2 "
+                    [class.p-error]="showValidate && !form.campusPref.length">
+                    <div class="p-formgroup-inline">
+                        <div class="p-field-checkbox">
+                            <p-checkbox name="campusPref" value="students" [(ngModel)]="form.campusPref"
+                                inputId="students">
+                            </p-checkbox>
+                            <label for="students">Students</label>
+                        </div>
+                        <div class="p-field-checkbox">
+                            <p-checkbox name="campusPref" value="location" [(ngModel)]="form.campusPref"
+                                inputId="location">
+                            </p-checkbox>
+                            <label for="location">Location</label>
+                        </div>
+                        <div class="p-field-checkbox">
+                            <p-checkbox name="campusPref" value="campus" [(ngModel)]="form.campusPref" inputId="campus">
+                            </p-checkbox>
+                            <label for="campus">Campus</label>
+                        </div>
+                        <div class="p-field-checkbox">
+                            <p-checkbox name="campusPref" value="atmosphere" [(ngModel)]="form.campusPref"
+                                inputId="atmosphere">
+                            </p-checkbox>
+                            <label for="atmosphere">Atmosphere</label>
+                        </div>
+                        <div class="p-field-checkbox">
+                            <p-checkbox name="campusPref" value="dorms" [(ngModel)]="form.campusPref" inputId="dorms">
+                            </p-checkbox>
+                            <label for="dorms">Dorm Rooms</label>
+                        </div>
+                        <div class="p-field-checkbox">
+                            <p-checkbox name="campusPref" value="sports" [(ngModel)]="form.campusPref" inputId="sports">
+                            </p-checkbox>
+                            <label for="sports">Sports</label>
+                        </div>
+                    </div>
+                    <small *ngIf="showValidate && !form.campusPref.length" id="email-help" class="p-error">At least 1
+                        choice is
+                        required</small>
+                </p-panel>
+            </div>
+
+            <div class="card p-mt-4 p-shadow-1">
+                <p-panel header="How did you become interested in the
+                    University?" class="customPannelHead" [class.p-error]="showValidate && !form.referencedThru">
+                    <div class="p-formgroup-inline">
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="referencedThru" value="friends" [(ngModel)]="form.referencedThru"
+                                inputId="friends">
+                            </p-radioButton>
+                            <label for="friends">Friends</label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="referencedThru" value="television" [(ngModel)]="form.referencedThru"
+                                inputId="television">
+                            </p-radioButton>
+                            <label for="television">Television</label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="referencedThru" value="internet" [(ngModel)]="form.referencedThru"
+                                inputId="internet">
+                            </p-radioButton>
+                            <label for="internet">Internet</label>
+                        </div>
+                        <div class="p-field-radiobutton">
+                            <p-radioButton name="referencedThru" value="other" [(ngModel)]="form.referencedThru"
+                                inputId="other">
+                            </p-radioButton>
+                            <label for="other">Other</label>
+                        </div>
+                    </div>
+                    <small *ngIf="showValidate && !form.referencedThru" id="referencedThru-help" class="p-error">Select
+                        1</small>
+                </p-panel>
+            </div>
+
+            <div class="card p-my-4 p-shadow-1">
+                <p-panel header="How likely are you to recommend this school to other prospective students?"
+                    class="customPannelHead">
+                    <div class="p-fluid p-formgrid p-grid">
+                        <div class="p-field p-col-12">
+                            <p-dropdown [options]="recommendations" optionValue="value"
+                                [(ngModel)]="form.recommendToOthers" placeholder="Select a recommendation"
+                                optionLabel="name" [class.ng-invalid]="showValidate && !form.recommendToOthers"
+                                [class.ng-dirty]="showValidate && !form.recommendToOthers">
+                            </p-dropdown>
+                        </div>
+                    </div>
+                </p-panel>
+            </div>
+            <!-- *ngIf -->
+            <p-button *ngIf="isNewSurvey" label="Submit" (click)="submit()"></p-button>
+            <p-button *ngIf="!isNewSurvey" label="Update" (click)="submit()"></p-button>
+        </p-card>
+    </div>
+</div>

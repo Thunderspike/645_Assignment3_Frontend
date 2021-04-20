@@ -1,0 +1,23 @@
+sizes {
+  .p-inputtext {
+    display: block;
+    margin-bottom: 0.5rem;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+.p-field * {
+  display: block;
+}
+
+// div {
+//   padding: 0.5em;
+// }
+
+// .p-field-checkbox label,
+// .p-field-radiobutton label {
+//   padding-left: 0.4em;
+// }

@@ -1,0 +1,20 @@
+<div class="p-d-flex p-jc-center">
+    <div class="p-col-12 p-md-11 p-grid">
+        <div *ngFor="let survey of surveys" class="p-col-12 p-my-2 p-md-6 p-lg-4">
+            <p-card styleClass="p-card-shadow p-shadow-4 p-py-0 customCardClass">
+                <p-panel header=" #{{survey.id}}">
+                    <ng-template pTemplate="icons">
+                        <p-button icon="pi pi-file-o" class="p-button-info" class="p-button-info"
+                            routerLink="/survey/{{survey.id}}"></p-button>
+                    </ng-template>
+                    <h3 class="p-mt-0">{{survey.fname}} {{survey.lname}}</h3>
+                    <div class="p-card-subtitle ng-star-inserted p-pb-2">{{survey.email}}</div>
+                    <div *ngIf="survey.recommendToOthers === 'veryLikely'" class="p-d-flex p-jc-sm-end">
+                        <p-chip label="Recommends" styleClass="p-mr-2 custom-chip p-ml-auto" icon="pi pi-check">
+                        </p-chip>
+                    </div>
+                </p-panel>
+            </p-card>
+        </div>
+    </div>
+</div>
