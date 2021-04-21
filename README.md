@@ -1,4 +1,8 @@
-# Survey
+# Survey Frontend
+
+This repo consumes data form the middleware at this repo: https://github.com/Thunderspike/645_Assignment3_Middleware
+
+<br />
 
 In order to have local access to the code of this frontend repo:
 
@@ -35,9 +39,9 @@ The structure of the git actions is the exact same as the middleware's
 -   build image with Dockerfile from github repo on push
 -   redeploy workload responsible for the frontend container
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
-
 ---
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.8.
 
 ## Development server
 
