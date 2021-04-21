@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: 'http://3.88.231.224:31772/SurveyMiddleware/api',
+    apiUrl: 'http://100.27.49.189:31772/SurveyMiddleware/api',
     production: true,
 };
