@@ -18,6 +18,8 @@ In order to have local access to the code of this frontend repo:
 
 The front end code structure of this project was heavily inspired after the [tour of heroes angular tutorial](https://angular.io/tutorial/toh-pt0) and it uses most of the features explained there.
 
+Additionally, this project uses [PrimeNG](https://primefaces.org/primeng/showcase/#/) for components and styles.
+
 The front end has a `/Home` page, with a static welcome message, a `/dashboard` page that displays a list of the surveys that exist in the DB accessed through the `/surveys` middleware method, a `/survey` page that allows users to provide a new survey, and a `/survey/{id}` page, which shows a previoulsy populated form and allows anyone to edit it. Any other page that does not exist will redirect back to the home page, while any survey page that does not exist will redirect to the dashboard.
 
 All survey form fields are required, and We have also implemented some minor fun features such as making the email and phone numbers of users unique.

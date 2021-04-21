@@ -23,7 +23,7 @@
     <div class="p-col-12 p-md-11 p-grid">
         <div *ngFor="let survey of surveys" class="p-col-12 p-my-2 p-md-6 p-lg-4">
             <p-card styleClass="p-card-shadow p-shadow-4 p-py-0 customCardClass">
-                <p-panel header=" #{{survey.id}}">
+                <p-panel header="#{{survey.id}}">
                     <ng-template pTemplate="icons">
                         <p-button icon="pi pi-file-o" class="p-button-info" class="p-button-info"
                             routerLink="/survey/{{survey.id}}"></p-button>
