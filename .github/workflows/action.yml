@@ -3,7 +3,7 @@ name: Dockerhub Deploy
 on: push
 
 jobs:
-    curl:
+    build-push-frontend-image:
         runs-on: ubuntu-latest
         steps:
             - name: Checkout
@@ -28,6 +28,10 @@ jobs:
                   push: true
                   tags: thunderspike/645_assignment3_frontend:latest
 
+    redeploy-rancher-middleware-workload:
+        needs: build-push-frontend-image
+        runs-on: ubuntu-latest
+        steps:
             - name: Github Action for curl
               uses: wei/curl@v1.1.1
               with:
@@ -37,4 +41,4 @@ jobs:
                       -X POST
                       -H 'Accept: application/json'
                       -H 'Content-Type: application/json'
-                      https://ec2-34-238-190-146.compute-1.amazonaws.com/v3/project/c-v88j4:p-qt2gf/workloads/deployment:default:frontend?action=redeploy
+                      https://100.27.49.189/v3/project/c-6ckq8:p-t6d55/workloads/deployment:hw3namespace:frontend?action=redeploy
