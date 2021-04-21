@@ -142,7 +142,10 @@ export class SurveyService {
             if (error.status == 404) {
                 this.log({
                     severity: 'warn',
-                    detail: error.body.error,
+                    detail:
+                        error?.error?.error ||
+                        error?.body?.error ||
+                        `Not found`,
                 });
             } else
                 this.log({
