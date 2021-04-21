@@ -1,6 +1,6 @@
 # Survey Frontend
 
-This repo consumes data form the middleware at this repo: https://github.com/Thunderspike/645_Assignment3_Middleware
+This repo consumes data from the middleware at this repo: https://github.com/Thunderspike/645_Assignment3_Middleware
 
 <br />
 
