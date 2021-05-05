@@ -1,4 +1,8 @@
+const server = `http://34.201.135.164`,
+    port = 31772,
+    serverApp = `SurveyOnKafka`;
+
 export const environment = {
-    apiUrl: 'http://34.201.135.164/SurveyOnKafka/api',
+    apiUrl: `${server}:${port}/${serverApp}/api`,
     production: true,
 };
