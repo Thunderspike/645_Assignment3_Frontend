@@ -1,4 +1,4 @@
 export const environment = {
-    apiUrl: 'http://18.215.165.20:31772/SurveyMiddleware/api',
+    apiUrl: 'http://34.201.135.164/SurveyOnKafka/api',
     production: true,
 };
