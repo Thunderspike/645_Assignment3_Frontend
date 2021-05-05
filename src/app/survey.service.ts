@@ -14,7 +14,10 @@ export class SurveyService {
     private surveyURL = environment.apiUrl; // URL to web api
 
     httpOptions = {
-        headers: new HttpHeaders({ 'Content-Type': 'application/json' }),
+        headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+        }),
     };
 
     private emptySurvey: SurveyDB = {
