@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { SurveyService } from '../survey.service';
 
-import { Survey } from '../CommonInterfaces';
+import { SurveyDB } from '../CommonInterfaces';
 
 @Component({
     selector: 'app-dashboard',
@@ -9,7 +9,7 @@ import { Survey } from '../CommonInterfaces';
     styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-    surveys: Survey[] = [];
+    surveys: SurveyDB[] = [];
     loaded = false;
 
     constructor(private surveyService: SurveyService) {}

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Survey, SurveyDB, dropdown } from '../CommonInterfaces';
+import { SurveyDB, dropdown } from '../CommonInterfaces';
 
 import { Router, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';

@@ -3,7 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-    apiUrl: 'http://localhost:8080/SurveyMiddleware/api',
+    apiUrl: 'http://localhost:8080/SurveyOnKafka/api',
     production: false,
 };
 
